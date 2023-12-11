@@ -10,13 +10,16 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "axios": "^1.6.2",
     "clsx": "^2.0.0",
     "lucide-react": "^0.294.0",
     "next": "14.0.3",
     "query-string": "^8.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.1.0"
+    "react-hot-toast": "^2.4.1",
+    "tailwind-merge": "^2.1.0",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/node": "^20",
