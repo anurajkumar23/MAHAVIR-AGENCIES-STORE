@@ -56,7 +56,6 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                 name="Colors" 
                 data={colors}
               />
-              
             </div>
             <div className="mt-6 lg:col-span-4 lg:mt-0">
               {products.length === 0 && <NoResults />}
