@@ -15,6 +15,7 @@ export interface Image {
 }
 
 export interface Billboard {
+  map(arg0: (item: any) => void): import("react").ReactNode;
   id: string;
   label: string;
   imageUrl: string;
@@ -37,3 +38,5 @@ export interface Color {
   name: string;
   value: string;
 };
+
+
