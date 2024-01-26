@@ -1,17 +1,19 @@
 // Import statements
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import Button from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 import { toast } from "react-hot-toast";
+import { RefreshCw } from 'lucide-react';
 
 const Summary = () => {
   const searchParams = useSearchParams();
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
+  const [loading , setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     if (searchParams.get('success')) {
@@ -31,6 +33,7 @@ const Summary = () => {
 
   // Handle checkout
   const onCheckout = async () => {
+    setLoading(true)
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
         productIds: items.map((item) => item.id)
@@ -78,7 +81,12 @@ const Summary = () => {
       </div>
       {/* Checkout button */}
       <Button onClick={onCheckout} disabled={items.length === 0} className="w-full mt-6">
-        Checkout
+      {loading ? (
+          <div className='flex justify-center cursor-wait space-x-2'>
+            <RefreshCw className='w-6 h-6 animate-spin' />
+            <p>Loading....</p>
+          </div>
+        ) : "Checkout"}
       </Button>
     </div>
   );
