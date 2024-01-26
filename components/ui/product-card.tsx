@@ -67,9 +67,25 @@ const ProductCard: React.FC<ProductCard> = ({
         <p className="text-sm text-gray-500">{data.category?.name}</p>
       </div>
       {/* Price & Reiew */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center gap-x-2">
+      <h1 className="font-semibold text-black">MRP:</h1>
+      
+      {/* Original Product Price */}
+      {/* Display Discounted Product Price if available */}
+      {data?.discountedPrice && (
+        <>
+          <span className="line-through text-gray-500">
+            <Currency value={data?.price} />
+          </span>
+          <Currency value={data?.discountedPrice} />
+        </>
+      )}
+
+      {/* If no discounted price, only display the original price */}
+      {!data?.discountedPrice && (
         <Currency value={data?.price} />
-      </div>
+      )}
+    </div>
     </div>
   );
 }

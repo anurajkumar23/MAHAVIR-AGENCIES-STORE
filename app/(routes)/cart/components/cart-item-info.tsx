@@ -8,7 +8,7 @@ const CartItemInfo: React.FC<CartItemInfoProps> = ({
   return ( 
     <div>
       <div className="flex justify-between">
-        <p className=" text-sm font-semibold text-black">
+        <p className="text-sm font-semibold text-black">
           {product.name}
         </p>
       </div>
@@ -17,7 +17,18 @@ const CartItemInfo: React.FC<CartItemInfoProps> = ({
         <p className="text-gray-500">{product.color}</p>
         <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">{product.size}</p>
       </div>
-      <p className="mt-1 text-sm font-medium text-gray-900">{product.price}</p>
+
+      <div className="mt-1 flex items-center text-sm">
+        {product.discountedPrice && (
+          <>
+            <p className="text-gray-500 line-through">{product.price}</p>
+            <p className="ml-4 text-gray-900">{product.discountedPrice}</p>
+          </>
+        )}
+        {!product.discountedPrice && (
+          <p className="text-gray-900">{product.price}</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -21,11 +21,26 @@ const Info: React.FC<InfoProps> = ({ data }) => {
   return ( 
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
-      <div className="mt-3 flex items-end justify-between">
-        <p className="text-2xl text-gray-900">
-          <Currency value={data?.price} />
-        </p>
-      </div>
+      <div className="mt-3 flex items-center gap-x-4 ">
+    <h1 className="text-3xl text-gray-900">MRP:</h1>
+    
+    <div className="flex items-center gap-x-2">
+      {/* Display Discounted Product Price if available */}
+      {data?.discountedPrice && (
+        <>
+          <span className="line-through text-gray-500">
+            <Currency value={data?.price} />
+          </span>
+          <Currency value={data?.discountedPrice} />
+        </>
+      )}
+
+      {/* If no discounted price, only display the original price */}
+      {!data?.discountedPrice && (
+        <Currency value={data?.price} />
+      )}
+    </div>
+  </div>
       <hr className="my-4" />
       <div className="flex flex-col gap-y-6">
         <div className="flex items-center gap-x-4">
