@@ -37,15 +37,15 @@ const HomePage = async () => {
                         <Image
                           src={category.imageUrl} 
                           alt={`Category: ${category.name}`}
-                          className="w-20 h-20 object-cover rounded-md"
+                          className="w-20 h-20 object-cover rounded-md mx-auto"
                           width={50}
                           height={50}
                         />
                       </div>
-                  </Link>
                   <figcaption className="mt-1 text-xl text-black text-center">
                     {category.name}
                   </figcaption>
+                  </Link>
                 </figure>
               ))}
             </div>
