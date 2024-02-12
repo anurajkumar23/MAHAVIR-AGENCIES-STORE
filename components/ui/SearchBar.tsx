@@ -6,7 +6,7 @@ type Props = {}
 const SearchBar = (props: Props) => {
   return (
     <div>
-        <div className=' flex items-center bg-gray-100 p-2 rounded-lg my-4 py-3 gap-4 max-md:hidden'>
+        <div className=' flex items-center bg-gray-100 p-2 rounded-lg my-4 py-3 gap-4 max-md:hidden w-[8rem] md:w-[14rem]'>
             <button><BiSearch size={20} className = 'opacity-50' /></button>
             <input 
             type="text"
