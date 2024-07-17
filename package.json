@@ -24,6 +24,7 @@
     "date-fns": "^2.30.0",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
+    "framer-motion": "^11.3.4",
     "lucide-react": "^0.241.0",
     "next": "13.4.4",
     "postcss": "8.4.24",

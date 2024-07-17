@@ -8,6 +8,9 @@ import Container from "@/components/ui/container";
 import Slider from "@/components/ui/swiper";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Image from "next/image";
+import HeroPage from '@/components/Homepage/page';
+import ClientPage from '@/components/clientPage/page';
+
 
 export const revalidate = 0;
 
@@ -25,7 +28,9 @@ const HomePage = async () => {
   return (
     <Container>
       <div className="space-y-10 pb-10">
-        <Slider data={billboard} />
+        {/* <Slider data={billboard} /> */}
+        <HeroPage/>
+        <ClientPage/>
         <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold mb-4 text-black">EXPLORE CATEGORIES</h2>
           <ScrollArea className="w-full  rounded-md border overflow-hidden">
